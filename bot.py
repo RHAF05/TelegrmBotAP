@@ -63,7 +63,7 @@ def echo_message(message):
                 datos = cursor.execute("INSERT INTO poles(pole,user,points,date) VALUES(?,?,?,?)",registros)
                 db.commit()
                 bot.reply_to(message,
-                    f'Erda bien y tal, {user} ha hecho la pole'
+                    f'Erda bien y tal, {user} ha hecho la pole',parse_mode="Markdown"
                 )
         elif (message.text.lower()=="plata"):
             user = mention
