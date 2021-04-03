@@ -49,8 +49,8 @@ def echo_message(message):
     cid = message.chat.id 
     message_text = message.text 
     user_id = message.from_user.id 
-    user_name = message.from_user.username or message.from_user.first_name 
-    mention = "@"+str(user_name)
+    user_name = message.from_user.username or message.from_user.first_name
+    mention = "["+str(user_name)+"](tg://user?id="+str(user_id)+")"
 
     # if weekno < 5 and now.hour>=5:
     if weekno < 7:
