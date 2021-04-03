@@ -18,10 +18,18 @@ def start(message):
 
 @bot.message_handler(commands=['polereset'])
 def polereset(message):
+    user = message.from_user
     db = sqlite3.connect("data.db")
     cursor = db.cursor()
     datos = cursor.execute("DELETE FROM poles")
-    bot.reply_to(message, 'Pole reseteadas!')
+    bot.reply_to(message, f'Pole reseteadas! {user}')
+
+@bot.message_handler(commands=['polerank'])
+def polereset(message):
+    db = sqlite3.connect("data.db")
+    cursor = db.cursor()
+    datos = cursor.execute("SELECT * FROM poles")
+    bot.reply_to(message, f"Pole reseteadas! {user}")
 
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
@@ -55,7 +63,7 @@ def echo_message(message):
                 datos = cursor.execute("INSERT INTO poles(pole,user,points,date) VALUES(?,?,?,?)",registros)
                 db.commit()
                 bot.reply_to(message,
-                    f'Erda bien y tal, {user}\ ha hecho la pole'
+                    f'Erda bien y tal, {user} ha hecho la pole'
                 )
         elif (message.text.lower()=="plata"):
             user = mention
