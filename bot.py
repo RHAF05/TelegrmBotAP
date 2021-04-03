@@ -18,7 +18,10 @@ def start(message):
 
 @bot.message_handler(commands=['polereset'])
 def polereset(message):
-    user = '<a href="tg://user?id='+ str(message.from_user.id)  +'">inline mention of a user</a>'
+    user_id = message.from_user.id 
+    user_name = message.from_user.username or message.from_user.first_name
+    mention = "["+str(user_name)+"](tg://user?id="+str(user_id)+")"
+    user = mention
     db = sqlite3.connect("data.db")
     cursor = db.cursor()
     datos = cursor.execute("DELETE FROM poles")
