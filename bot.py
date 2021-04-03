@@ -16,8 +16,8 @@ server = Flask(__name__)
 def start(message):
     bot.reply_to(message, 'Hola, ' + message.from_user.first_name)
 
-@bot.message_handler(commands=['reset_pole'])
-def reset_pole(message):
+@bot.message_handler(commands=['polereset'])
+def polereset(message):
     db = sqlite3.connect("data.db")
     cursor = db.cursor()
     datos = cursor.execute("DELETE FROM poles")
