@@ -29,7 +29,7 @@ def polereset(message):
     db = sqlite3.connect("data.db")
     cursor = db.cursor()
     datos = cursor.execute("SELECT * FROM poles")
-    bot.reply_to(message, f"Pole reseteadas! {user}")
+    bot.reply_to(message, f"Pole reseteadas! {user}",parse_mode="Markdown")
 
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
@@ -80,7 +80,7 @@ def echo_message(message):
                         datos = cursor.execute("INSERT INTO poles(pole,user,points,date) VALUES(?,?,?,?)",registros)
                         db.commit()
                         bot.reply_to(message,
-                            f'muy bien, {user} ha hecho la plata'
+                            f'muy bien, {user} ha hecho la plata',parse_mode="Markdown"
                         )
         elif (message.text.lower()=="bronce"):
             user = mention
@@ -97,7 +97,7 @@ def echo_message(message):
                         datos = cursor.execute("INSERT INTO poles(pole,user,points,date) VALUES(?,?,?,?)",registros)
                         db.commit()
                         bot.reply_to(message,
-                            f'Algo es algo, {user} ha conseguido el bronce'
+                            f'Algo es algo, {user} ha conseguido el bronce',parse_mode="Markdown"
                         )
         elif (message.text.lower()=="fail"):
             user = mention
@@ -105,12 +105,12 @@ def echo_message(message):
             datos = cursor.execute("INSERT INTO poles(pole,user,points,date) VALUES(?,?,?,?)",registros)
             db.commit()
             bot.reply_to(message,
-                f'Al menos lo intento, {user} ha conseguido un Fail'
+                f'Al menos lo intento, {user} ha conseguido un Fail',parse_mode="Markdown"
             )
     elif (message.text.lower()=="poleprueba" or message.text.lower()=="plataprueba" or message.text.lower()=="bronceprueba" or message.text.lower()=="fail"):
         user = mention
         bot.reply_to(message,
-            f'Deja de molestarme {user} que estas no son horas de estar haciendo {message.text.lower()}'
+            f'Deja de molestarme {user} que estas no son horas de estar haciendo {message.text.lower()}',parse_mode="Markdown"
         )
 
 
