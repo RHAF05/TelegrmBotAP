@@ -37,7 +37,7 @@ def polerank(message):
     for pole in poles:
         registros += str(pole[1]) + ": " + str(pole[0]) + " puntos\n"
 
-    bot.reply_to(message, f"{registros}")
+    bot.reply_to(message, f"{registros}",parse_mode="Markdown")
 
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
