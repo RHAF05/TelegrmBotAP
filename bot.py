@@ -25,7 +25,7 @@ def polereset(message):
     db = sqlite3.connect("data.db")
     cursor = db.cursor()
     datos = cursor.execute("DELETE FROM poles")
-    bot.reply_to(message, f'Pole reseteadas! {user}')
+    bot.reply_to(message, f'Pole reseteadas! {user}',parse_mode="Markdown")
 
 @bot.message_handler(commands=['polerank'])
 def polerank(message):
@@ -33,10 +33,11 @@ def polerank(message):
     cursor = db.cursor()
     datos = cursor.execute("SELECT SUM(points) AS puntos, user FROM poles GROUP BY user")
     poles = datos.fetchall()
+    registros = "Estos son los registros\n"
     for pole in poles:
         registros += str(pole[1]) + ": " + str(pole[0]) + " puntos\n"
 
-    bot.reply_to(message, f"{registros}",parse_mode="Markdown")
+    bot.reply_to(message, f"{registros}")
 
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
