@@ -50,7 +50,7 @@ def echo_message(message):
     message_text = message.text 
     user_id = message.from_user.id 
     user_name = message.from_user.first_name 
-    mention = "["+user_name+"](tg://user?id="+str(user_id)+")"
+    mention = "["+user_name+"](mention:@"+str(user_id)+")"
 
     # if weekno < 5 and now.hour>=5:
     if weekno < 7:
