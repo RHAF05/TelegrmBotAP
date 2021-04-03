@@ -16,6 +16,13 @@ server = Flask(__name__)
 def start(message):
     bot.reply_to(message, 'Hola, ' + message.from_user.first_name)
 
+@bot.message_handler(commands=['reset_pole'])
+def reset_pole(message):
+    db = sqlite3.connect("data.db")
+    cursor = db.cursor()
+    datos = cursor.execute("DELETE FROM poles")
+    bot.reply_to(message, 'Pole reseteadas!')
+
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def echo_message(message):
@@ -34,7 +41,7 @@ def echo_message(message):
     # if weekno < 5 and now.hour>=5:
     if weekno < 7:
         if(message.text.lower()=="pole"):
-            user = message.from_user.first_name
+            user = message.from_user
             #Validamos que no se haya hecho la pole
             datos = cursor.execute("SELECT * FROM poles WHERE pole='pole' AND date >=  '" +str(now.year) + "-" + str(now.month).zfill(2) + "-" + str(now.day).zfill(2) + "'")
             if len(datos.fetchall())==0:
@@ -45,7 +52,7 @@ def echo_message(message):
                     f'Erda bien y tal, {user}\ ha hecho la pole'
                 )
         elif (message.text.lower()=="plata"):
-            user = message.from_user.first_name
+            user = message.from_user
             # Validamos que se haya hecho la pole
             datos = cursor.execute("SELECT * FROM poles WHERE pole='pole' AND date >=  '" +str(now.year) + "-" + str(now.month).zfill(2) + "-" + str(now.day).zfill(2) + "'")
             if len(datos.fetchall())>0:
@@ -62,7 +69,7 @@ def echo_message(message):
                             f'muy bien, {user}\ ha hecho la plata'
                         )
         elif (message.text.lower()=="bronce"):
-            user = message.from_user.first_name
+            user = message.from_user
             # Validamos que se haya hecho la plata
             datos = cursor.execute("SELECT * FROM poles WHERE pole='plata' AND date >=  '" +str(now.year) + "-" + str(now.month).zfill(2) + "-" + str(now.day).zfill(2) + "'")
             if len(datos.fetchall())>0:
@@ -79,7 +86,7 @@ def echo_message(message):
                             f'Algo es algo, {user}\ ha conseguido el bronce'
                         )
         elif (message.text.lower()=="fail"):
-            user = message.from_user.first_name
+            user = message.from_user
             registros = ('fail',user,0,now)
             datos = cursor.execute("INSERT INTO poles(pole,user,points,date) VALUES(?,?,?,?)",registros)
             db.commit()
@@ -87,7 +94,7 @@ def echo_message(message):
                 f'Al menos lo intento, {user}\ ha conseguido un Fail'
             )
     elif (message.text.lower()=="poleprueba" or message.text.lower()=="plataprueba" or message.text.lower()=="bronceprueba" or message.text.lower()=="fail"):
-        user = message.from_user.first_name
+        user = message.from_user
         bot.reply_to(message,
             f'Deja de molestarme {user} que estas no son horas de estar haciendo {message.text.lower()}'
         )
