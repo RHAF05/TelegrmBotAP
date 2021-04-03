@@ -31,8 +31,8 @@ def echo_message(message):
     fecha_ant = "'" + str(now.year) + '-' + str(now.month) + '-' + str(now.day) + "'"
     fecha_act = datetime.datetime(now.year, now.month, (now.day+1))
 
-    # if weekno < 7:
-    if weekno < 5 and now.hour>=5:
+    # if weekno < 5 and now.hour>=5:
+    if weekno < 7:
         if(message.text.lower()=="pole"):
             user = message.from_user.first_name
             #Validamos que no se haya hecho la pole
