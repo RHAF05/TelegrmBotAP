@@ -80,7 +80,7 @@ def echo_message(message):
                         datos = cursor.execute("INSERT INTO poles(pole,user,points,date) VALUES(?,?,?,?)",registros)
                         db.commit()
                         bot.reply_to(message,
-                            f'muy bien, {user}\ ha hecho la plata'
+                            f'muy bien, {user} ha hecho la plata'
                         )
         elif (message.text.lower()=="bronce"):
             user = mention
@@ -97,7 +97,7 @@ def echo_message(message):
                         datos = cursor.execute("INSERT INTO poles(pole,user,points,date) VALUES(?,?,?,?)",registros)
                         db.commit()
                         bot.reply_to(message,
-                            f'Algo es algo, {user}\ ha conseguido el bronce'
+                            f'Algo es algo, {user} ha conseguido el bronce'
                         )
         elif (message.text.lower()=="fail"):
             user = mention
@@ -105,7 +105,7 @@ def echo_message(message):
             datos = cursor.execute("INSERT INTO poles(pole,user,points,date) VALUES(?,?,?,?)",registros)
             db.commit()
             bot.reply_to(message,
-                f'Al menos lo intento, {user}\ ha conseguido un Fail'
+                f'Al menos lo intento, {user} ha conseguido un Fail'
             )
     elif (message.text.lower()=="poleprueba" or message.text.lower()=="plataprueba" or message.text.lower()=="bronceprueba" or message.text.lower()=="fail"):
         user = mention
