@@ -115,11 +115,42 @@ def echo_message(message):
             bot.reply_to(message,
                 f'Al menos lo intento, {user} ha conseguido un Fail',parse_mode="Markdown"
             )
-    elif (message.text.lower()=="poleprueba" or message.text.lower()=="plataprueba" or message.text.lower()=="bronceprueba" or message.text.lower()=="fail"):
+    elif (message.text.lower()=="pole" or message.text.lower()=="plata" or message.text.lower()=="bronce" or message.text.lower()=="fail"):
         user = mention
         bot.reply_to(message,
             f'Deja de molestarme {user} que estas no son horas de estar haciendo {message.text.lower()}',parse_mode="Markdown"
         )
+
+    #Otros tipos de mensajes
+    if (message.text.lower()==":("):
+        bot.reply_to(message,
+            f'Sonrie {user} la vida es sabrosa',parse_mode="Markdown"
+        )
+    elif (message.text.lower()=="Buenos dias" or message.text.lower()=="Buenos dias a todos"):
+        bot.reply_to(message,
+            f'Buenos dias, {user} mueve la cadera para empezar el dia',parse_mode="Markdown"
+        )
+    elif (message.text.lower()=="Buenas tardes" or message.text.lower()=="Buenas tardes a todos"):
+        bot.reply_to(message,
+            f'Buenas tardes, {user} despues de un buen almuerzo, hora de trabajar!',parse_mode="Markdown"
+        )
+    elif (message.text.lower()=="Buenas noches" or message.text.lower()=="Buenas noches a todos"):
+        bot.reply_to(message,
+            f'Buenas noches, {user} ya casi es hora de descansar para recargar',parse_mode="Markdown"
+        )
+    elif (message.text.lower()=="apcontables" or message.text.lower()=="ap"):
+        bot.reply_to(message,
+            f'Es lo mejor de lo mejor',parse_mode="Markdown"
+        )
+    elif (message.text.lower()=="quien te creo?" or message.text.lower()=="quien te creo" or message.text.lower()=="quien es el mejor?"):
+        bot.reply_to(message,
+            f'Habith, El puto amo',parse_mode="Markdown"
+        )
+    elif (message.text.lower()=="abingenieros"):
+        bot.reply_to(message,
+            f'Donde estan los mejores ingenieros',parse_mode="Markdown"
+        )
+
 
 
 @server.route('/' + TOKEN, methods=['POST'])
