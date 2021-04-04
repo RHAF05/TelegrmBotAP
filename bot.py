@@ -122,19 +122,19 @@ def echo_message(message):
         )
 
     #Otros tipos de mensajes
-    if (message.text.lower()==":("):
+    if (message.text.lower()=="\:\("):
         bot.reply_to(message,
             f'Sonrie {user} la vida es sabrosa',parse_mode="Markdown"
         )
-    elif (message.text.lower()=="Buenos dias" or message.text.lower()=="Buenos dias a todos"):
+    elif (message.text.lower()=="buenos dias" or message.text.lower()=="buenos dias a todos"):
         bot.reply_to(message,
             f'Buenos dias, {user} mueve la cadera para empezar el dia',parse_mode="Markdown"
         )
-    elif (message.text.lower()=="Buenas tardes" or message.text.lower()=="Buenas tardes a todos"):
+    elif (message.text.lower()=="buenas tardes" or message.text.lower()=="buenas tardes a todos"):
         bot.reply_to(message,
             f'Buenas tardes, {user} despues de un buen almuerzo, hora de trabajar!',parse_mode="Markdown"
         )
-    elif (message.text.lower()=="Buenas noches" or message.text.lower()=="Buenas noches a todos"):
+    elif (message.text.lower()=="buenas noches" or message.text.lower()=="buenas noches a todos"):
         bot.reply_to(message,
             f'Buenas noches, {user} ya casi es hora de descansar para recargar',parse_mode="Markdown"
         )
