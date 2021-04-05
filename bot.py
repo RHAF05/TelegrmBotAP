@@ -146,7 +146,7 @@ def echo_message(message):
         bot.reply_to(message,
             f'Habith, El puto amo',parse_mode="Markdown"
         )
-    elif (message.text.lower()=="abingenieros"):
+    elif (message.text.lower()=="abingenieros" or message.text.lower()=="ab"):
         bot.reply_to(message,
             f'Donde estan los mejores ingenieros',parse_mode="Markdown"
         )
