@@ -61,7 +61,7 @@ def echo_message(message):
     mention = "["+str(user_name)+"](tg://user?id="+str(user_id)+")"
 
     # if weekno < 7:
-    if weekno < 5 and now.hour>=17:
+    if weekno < 5 and (now.hour-5)>=17:
         if(message.text.lower()=="pole"):
             user = mention
             #Validamos que no se haya hecho la pole
