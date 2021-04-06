@@ -6,6 +6,7 @@ import telebot
 
 import datetime
 import sqlite3
+import cat
 
 TOKEN = os.environ.get('BOT_TOKEN')
 bot = telebot.TeleBot(TOKEN)
@@ -39,6 +40,11 @@ def polerank(message):
 
     bot.reply_to(message, f"{registros}",parse_mode="Markdown")
 
+def cats(message):
+    cat.getCat(directory='./', filename='cat', format='png')
+    photo = open('./cat.png', 'rb')
+    bot.send_photo(chat_id, photo)
+    bot.send_photo(chat_id, "FILEID")
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def echo_message(message):
@@ -153,6 +159,9 @@ def echo_message(message):
 
     if (message.text.lower()==u"!polerank"):
         polerank(message)
+
+    if (message.text.lower()==u"!cats"):
+        cats(message)
 
 
 
