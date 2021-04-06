@@ -152,9 +152,7 @@ def echo_message(message):
         )
 
     if (message.text.lower()==u"!polerank"):
-        bot.reply_to(message,
-            f'Donde estan los mejores ingenieros',parse_mode="Markdown"
-        )
+        polerank(message)
 
 
 
