@@ -31,7 +31,7 @@ def polereset(message):
 def polerank(message):
     db = sqlite3.connect("data.db")
     cursor = db.cursor()
-    datos = cursor.execute("SELECT SUM(points) AS puntos, user FROM poles GROUP BY user")
+    datos = cursor.execute("SELECT SUM(points) AS puntos, user FROM poles GROUP BY user ORDER BY puntos DESC")
     poles = datos.fetchall()
     registros = "Estos son los registros\n"
     for pole in poles:
