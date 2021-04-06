@@ -41,9 +41,9 @@ def polerank(message):
     bot.reply_to(message, f"{registros}",parse_mode="Markdown")
 
 def cats(message):
-    cat.getCat(directory='./', filename='cat', format='png')
-    photo = open('./cat.png', 'rb')
-    bot.send_photo(message.chat.id, photo)
+    # cat.getCat(directory='./', filename='cat', format='png')
+    # photo = open('./cat.png', 'rb')
+    # bot.send_photo(message.chat.id, photo)
     # bot.send_photo(message.chat.id, "FILEID")
     bot.reply_to(message,
         f'a ver...',parse_mode="Markdown"
