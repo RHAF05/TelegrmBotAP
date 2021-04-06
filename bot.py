@@ -50,8 +50,9 @@ def cats(message):
     r = requests.get(url)
     with open(filename,'wb') as f:
         f.write(r.content)
-    bot.send_photo(message.chat.id, filename)
-    bot.send_photo(message.chat.id, "FILEID")
+    photo = open(filename, 'rb')
+    bot.send_photo(message.chat.id, photo)
+    # bot.send_photo(message.chat.id, "FILEID")
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def echo_message(message):
