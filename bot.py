@@ -34,7 +34,7 @@ def polerank(message):
     cursor = db.cursor()
     datos = cursor.execute("SELECT SUM(points) AS puntos, user FROM poles GROUP BY user ORDER BY puntos DESC")
     poles = datos.fetchall()
-    registros = "Estos son los registros\n"
+    registros = "Así va la vaina:\n"
     for pole in poles:
         registros += str(pole[1]) + ": " + str(pole[0]) + " puntos\n"
 
