@@ -45,6 +45,9 @@ def cats(message):
     photo = open('./cat.png', 'rb')
     bot.send_photo(message.chat_id, photo)
     # bot.send_photo(chat_id, "FILEID")
+    bot.reply_to(message,
+        dir(message),parse_mode="Markdown"
+    )
 
 @bot.message_handler(func=lambda message: True, content_types=['text'])
 def echo_message(message):
