@@ -115,7 +115,7 @@ def echo_message(message):
             bot.reply_to(message,
                 f'Al menos lo intento, {user} ha conseguido un Fail',parse_mode="Markdown"
             )
-    elif (message.text.lower()=="pole" or message.text.lower()=="plata" or message.text.lower()=="bronce" or message.text.lower()=="fail"):
+    elif ((message.text.lower()=="pole" or message.text.lower()=="plata" or message.text.lower()=="bronce" or message.text.lower()=="fail") and now.hour<=16):
         user = mention
         bot.reply_to(message,
             f'Deja de molestarme {user} que estas no son horas de estar haciendo {message.text.lower()}',parse_mode="Markdown"
