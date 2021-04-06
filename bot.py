@@ -122,19 +122,19 @@ def echo_message(message):
         )
 
     #Otros tipos de mensajes
-    if (message.text.lower()==":("):
+    if (message.text.lower()== u":("):
         bot.reply_to(message,
             f'Sonrie {user} la vida es sabrosa',parse_mode="Markdown"
         )
-    elif (message.text.lower()=="buenos dias" or message.text.lower()=="buenos dias a todos"):
+    elif (message.text.lower()== u"buenos días" or message.text.lower()=="buenos dias" or message.text.lower()=="buenos dias a todos"):
         bot.reply_to(message,
             f'Buenos dias, {user} mueve la cadera para empezar el dia',parse_mode="Markdown"
         )
-    elif (message.text.lower()=="buenas tardes" or message.text.lower()=="buenas tardes a todos"):
+    elif (message.text.lower()== u"buenas tardes" or message.text.lower()=="buenas tardes a todos"):
         bot.reply_to(message,
             f'Buenas tardes, {user} despues de un buen almuerzo, hora de trabajar!',parse_mode="Markdown"
         )
-    elif (message.text.lower()=="buenas noches" or message.text.lower()=="buenas noches a todos"):
+    elif (message.text.lower()== u"buenas noches" or message.text.lower()=="buenas noches a todos"):
         bot.reply_to(message,
             f'Buenas noches, {user} ya casi es hora de descansar para recargar',parse_mode="Markdown"
         )
@@ -142,11 +142,16 @@ def echo_message(message):
         bot.reply_to(message,
             f'Es lo mejor de lo mejor',parse_mode="Markdown"
         )
-    elif (message.text.lower()=="quien te creo?" or message.text.lower()=="quien te creo" or message.text.lower()=="quien es el mejor?"):
+    elif (message.text.lower()=="quien te creo?" or message.text.lower()== u"quien te creó?" or message.text.lower()=="quien te creo" or message.text.lower()=="quien es el mejor?"):
         bot.reply_to(message,
             f'Habith, El puto amo',parse_mode="Markdown"
         )
     elif (message.text.lower()=="abingenieros" or message.text.lower()=="ab"):
+        bot.reply_to(message,
+            f'Donde estan los mejores ingenieros',parse_mode="Markdown"
+        )
+
+    if (message.text.lower()==u"!polerank"):
         bot.reply_to(message,
             f'Donde estan los mejores ingenieros',parse_mode="Markdown"
         )
