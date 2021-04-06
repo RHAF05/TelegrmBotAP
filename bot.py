@@ -6,7 +6,7 @@ import telebot
 
 import datetime
 import sqlite3
-import cat
+import requests
 
 TOKEN = os.environ.get('BOT_TOKEN')
 bot = telebot.TeleBot(TOKEN)
@@ -45,6 +45,11 @@ def cats(message):
     # photo = open('./cat.png', 'rb')
     # bot.send_photo(message.chat.id, photo)
     # bot.send_photo(message.chat.id, "FILEID")
+    url = 'https://cataas.com/cat'
+    filename = 'cat.jpg'
+    r = requests.get(url)
+    with open(filename,'wb') as f:
+        f.write(r.content)
     bot.reply_to(message,
         f'a ver...',parse_mode="Markdown"
     )
